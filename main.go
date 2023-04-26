@@ -1,10 +1,24 @@
 package remote_module
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-//This is branch V1
+//This is branch V2
 
-func Greet(name string) {
+func Greet(name string, lang string) error {
 
-	fmt.Println("Hello, ", name)
+	switch lang {
+	case "eng":
+		fmt.Println("Hi ", name)
+		return nil
+	case "rus":
+		fmt.Println("Привет ", name)
+		return nil
+	default:
+		fmt.Println("Unknown language")
+		return errors.New("unknown language")
+	}
+
 }
